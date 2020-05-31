@@ -1,0 +1,75 @@
+﻿-------------------------------------------------------------------------------
+Wie das Spiel funktioniert:
+
+Wenn eine 6 gewürfelt wird KANN eine Figur aus dem Haus
+gesetzt werden. Wird eine Figur aus dem Haus gesetzt darf
+man erneut würfeln. Man MUSS jedoch wenn bereits Figuren
+auf dem Feld sind nicht aus dem Haus setzen. Das lässt
+ein wenig Raum für Strategie. Ist zb. eine Figur auf dem
+Startfeld dann verpasse ich einen kostenlosen Zug. Auf der
+anderen Seite kann ich mit der 6 eine Figur aus dem Haus
+setzen und stattdessen eine Figur nahe am Ziel bewegen.
+-----------------------------------------------------------
+Visual construction of the board (by values):
+
+0 1			8   9  10		  0 1
+2 3			7   0  11         2 3
+			6   1  12
+			5   2  13
+0  1  2  3  4	3  14 15 16 17 18
+39 0  1  2  3	    3  2  1  0 19
+38 37 36 35 34  3  24 23 22 21 20
+		    33  2  25
+			32  1  26
+0 1			31  0  27		  0 1
+2 3 		30  29 28		  2 3
+
+	   
+			  | Player 0 | Player 1 | Player 2 | Player 3 |
+-----------------------------------------------------------
+Entry:		  | 0		 | 10	    | 20	   | 30	      |
+Goal in range:| 37		 | 7		| 17	   | 27		  |
+Goal range:   | 37 - 39  | 7 - 9	| 17 - 19  | 27 - 29  |
+Home location:| Top Left | Top Right| Bot Right| Bot Left |
+Goal location:| Left     | Top Mid  | Right    | Bot Mid  | 
+Figures:	  | 0 0 0 0  | 1 1 1 1  | 2 2 2 2  | 3 3 3 3  |
+
+-----------------------------------------------------------
+Useful commands:
+
+<Grid>:
+Grid.Children.Remove(object);
+Grid.Children.RemoveAt(index);
+
+Grid.SetColumn(UIElement e, int zeile);
+Grid.SetRow(UIElement e, int reihe);
+
+Grid.GetColumn(UIElement e);
+Grid.GetRow(UIElement e);
+-----------------------------------------------------------
+WICHTIG:
+- KI testen und implementieren!
+- Unittest für Bewege
+- Weitere Regeln hinzufügen
+- Speichern!
+- Laden!
+
+Code-Refactor:
+- Sicherheit überprüfen
+- Klassen anpassen
+- Redundanz prüfen
+
+Grafik:
+- Harmonische Farben für den Spieler und die Felder
+- Textart ändern
+- Xaml-Code optimieren
+
+Menüs:
+- Einstellungen mit Setup
+- Optionen für die Figuren
+
+-----------------------------------------------------------
+Normale Buttongroeße:
+<Setter Property="Height" Value="75"/>
+<Setter Property="Width" Value="120"/>
+

@@ -1,0 +1,27 @@
+﻿<Window x:Class="MAD.Ressourcen.UserControls.SpielAnalyseTool"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAD.Ressourcen.UserControls"
+        mc:Ignorable="d"
+        Title="SpielAnalyseTool" Height="450" Width="600" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Background="#7ACC95">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <Label x:Name="Wurf" ContentStringFormat="Wurf: {0}" Content="{Binding Path=Wurf}" Style="{StaticResource Menu_Label}"/>
+            <Label x:Name="Am_Zug" ContentStringFormat="Am_Zug: {0}" Content="{Binding Path=Am_Zug}" Style="{StaticResource Menu_Label}"/>
+            <Label x:Name="Auswahl" ContentStringFormat="Gewaehlt: {0}" Content="{Binding Path=Gewaehlt}" Style="{StaticResource Menu_Label}"/>
+            <Label x:Name="Bereich" ContentStringFormat="Bereich: {0}" Content="{Binding ElementName=Bereich, Path=DataContext}" Style="{StaticResource Menu_Label}"/>
+            <Label x:Name="Position" ContentStringFormat="Position: {0}" Content="{Binding ElementName=Position, Path=DataContext}" Style="{StaticResource Menu_Label}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿-------------------------------------------------------------------------
+Angewendetes Farbschema im Menu:
+- Spielbrett:  #FFBF62 , RGB: 255, 191, 98
+- Hintergrund: #74B389 , RGB: 116, 179, 137
+- User-Interface / Menues: #7ACC95 , RGB: 122, 204, 149
+- Menu Buttons Unpressed:  #8F6BB3 , RGB: 143, 107, 179
+- Menu Buttons Pressed:    #D9B3FF , RGB: 217, 179, 255
+-------------------------------------------------------------------------
+Angewendetes Farbschema bei den Feldern:
+- Weiß:   #FFFFFF , RGB: 255 255 255
+- Grau:   #BFBFBF , RGB: 191 191 191
+- Dunkel: #7F7F7F , RGB: 127 127 127
+- Black:  #404040 , RGB: 64 64 64
+-------------------------------------------------------------------------
+Angewendetes Farbschema beim blauen Spieler:
+- Figur: #0024FF , RGB: 0 36 255
+- Feld:  #001BBF , RGB: 0 27 191
+- Start: #00127F , RGB: 0 18 127
+- Rest:  #000940 , RGB: 0 9 64 ; #0020E3 , RGB: 0 32 227
+-------------------------------------------------------------------------
+Angewendetes Farbschema beim roten Spieler:
+- Figur: #FF2400 , RGB: 255 36 0
+- Feld:  #BF1B00 , RGB: 191 27 0
+- Start: #7F1200 , RGB: 127 18 0
+- Rest:  #400900 , RGB: 64 9 0 ; #E5200 , RGB: 229 32 0
+-------------------------------------------------------------------------
+Angewendetes Farbschema beim gruenen Spieler:
+- Figur: #00FF24 , RGB: 0 255 36
+- Feld:  #00BF1B , RGB: 0 191 27
+- Start: #007F12 , RGB: 0 127 18
+- Rest:  #004009 , RGB: 0 64 9 ; #00FF24 , RGB: 0 255 36 same as figur
+-------------------------------------------------------------------------
+Angewendetes Farbschema beim gelben Spieler:
+- Figur: #FFFF00 , RGB: 255 255 0
+- Feld:  #FFFF4C , RGB: 255 255 76
+- Start: #E5E500 , RGB: 229 229 0
+- Rest:  #404000 , RGB: 64 64 0 ; #FFFF00 , RGB: 255 255 0 same as figur
+-------------------------------------------------------------------------

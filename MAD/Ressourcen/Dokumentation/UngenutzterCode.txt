@@ -1,0 +1,147 @@
+﻿#region Alternative Funktionen (Parameterübergabe) //Moeglicherweise veraltet!
+
+public void Einfache_Bewegung(Figur f, int zielfeld)
+{
+	f.Aktuell.Unbesetzen();
+	f.Aktuell = p[Am_Zug].Route.F[zielfeld];
+	f.Aktuell.Besetzt = Am_Zug;
+	f.Route_Pos = zielfeld;
+}
+
+public void Bewege_Figur(int zielfeld, int spieler, int figur)
+{
+	//Wenn ein Feld ausserhalb des Weges + Ziel gewaehlt wird
+	if (zielfeld >= 44 || zielfeld == -1)
+		return;
+
+	//Wenn besetzt, pruefe ob von eigenem Spieler besetzt
+	if (p[spieler].Route.F[zielfeld].Besetzt != spieler)
+	{
+		if (p[spieler].Route.F[zielfeld].Besetzt != -1)
+		{
+			Kicke_Figur(p[spieler].Route.F[zielfeld]);
+		}
+
+		int zaehler = zielfeld;
+
+		if (zielfeld == 0)
+		{
+			Setze_Aus_Haus(spieler, figur);
+			zaehler = 0;
+		}
+
+		while (zaehler > 0)
+		{
+			Bewege_Ein_Feld(spieler, figur);
+			zaehler--;
+		}
+	}
+}
+
+public void Bewege_Ein_Feld(int spieler, int figur)
+{
+	p[spieler].Figuren[figur].Route_Pos++;
+	//Setze das Feld von der Spieler-Figur auf die nächste Routen-Position
+	p[spieler].Figuren[figur].Aktuell = p[spieler].Route.F[p[spieler].Figuren[figur].Route_Pos];
+}
+
+public void Bewege_Letztes_Feld()
+{
+	p[Am_Zug].Figuren[Gewaehlt].Route_Pos++;
+	//Setze das Feld von der Spieler-Figur auf die nächste Routen-Position
+	p[Am_Zug].Route.F[p[Am_Zug].Figuren[Gewaehlt].Route_Pos].Besetzt = Am_Zug;
+	p[Am_Zug].Figuren[Gewaehlt].Aktuell = p[Am_Zug].Route.F[p[Am_Zug].Figuren[Gewaehlt].Route_Pos];
+}
+
+public void Setze_Ins_Haus(Figur f, int spieler)
+{
+	if (f.Route_Pos != -1)
+	{
+		int haus = f.Aktuell.Besetzt;
+		f.Aktuell.Unbesetzen();
+		f.Aktuell = b.Haus[spieler].F[haus];
+		f.Aktuell.Besetzt = spieler;
+		f.Route_Pos = -1;
+	}
+}
+
+public void Setze_Aus_Haus(int spieler, int figur)
+{
+	if (p[spieler].Route.F[0].Besetzt != spieler)
+		Kicke_Figur(p[spieler].Route.F[0]);
+	if (p[spieler].Route.F[0].Besetzt == spieler)
+		return;
+
+	if (p[spieler].Route.F[0].Besetzt == -1)
+	{
+		p[spieler].Figuren[figur].Aktuell.Unbesetzen();
+		p[spieler].Figuren[figur].Aktuell = p[spieler].Route.F[0];
+		p[spieler].Figuren[figur].Aktuell.Besetzt = spieler;
+		p[spieler].Figuren[figur].Route_Pos = 0;
+	}
+}
+
+public void Kicke_Figur(int spieler, int figur)
+{
+	if (p[spieler].Figuren[figur].Route_Pos == -1)
+		return;
+
+	Setze_Ins_Haus(spieler, figur);
+}
+
+public int Setze_Zielfeld(Figur f)
+{
+	if (f == null)
+		return -1;
+
+	int zielfeld = f.Route_Pos + Wurf;
+
+	if (zielfeld > 44 || f.Route_Pos == -1 && Wurf != 6)
+	{
+		return -1;
+	}
+	else
+	{
+		return zielfeld;
+	}
+}
+
+public int Setze_Zielfeld(int spieler, int figur)
+{
+	int zielfeld = p[spieler].Figuren[figur].Route_Pos + Wurf;
+
+	if (zielfeld > 44 || p[spieler].Figuren[figur].Route_Pos == -1 && Wurf != 6)
+	{
+		return -1;
+	}
+	else
+	{
+		return zielfeld;
+	}
+}
+
+//Der zurückgegebene Wert ist das freie Haus 0-3 vom übergebenem Spieler
+public int Gib_Freies_Haus(int spieler)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (b.Haus[spieler].F[i].Besetzt == -1)
+		{
+			return b.Haus[spieler].F[i].Position;
+		}
+	}
+	return -1; //Wenn kein Haus frei ist
+}
+
+public bool Ist_Haus_Frei(int spieler)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (b.Haus[spieler].F[i].Besetzt == -1)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+#endregion

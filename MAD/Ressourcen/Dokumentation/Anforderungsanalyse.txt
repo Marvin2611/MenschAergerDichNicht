@@ -1,0 +1,98 @@
+﻿-------------------------------------------------------------------------
+ANFORDERUNGEN: Was soll gebaut werden? 
+-------------------------------------------------------------------------
+Das Spiel "Mensch Ärger Dich Nicht" soll realisiert werden.
+
+Die Mindestproduktanforderungen:
+- Das Spiel muss fehlerfrei funktionieren
+- Das System muss getestet sein
+- Das System muss Code Qualitätsregeln einhalten
+
+Optionale Anforderungen:
+- Das Spiel kann über ein Netzwerk gespielt werden
+- Spielstände können gespeichert und geladen werden
+- Die Spieleranzahl kann auf 6 erweitert werden
+- Ein kleines Menü erlaubt weitere Einstellungen / Regeln
+
+-------------------------------------------------------------------------
+SPEZIFIKATION: Wie soll das System umgesetzt werden?
+-------------------------------------------------------------------------
+Spielabstraktion: Welche Klassen gibt es?
+- Wuerfel (Zufallszahlen ausgeben)
+- Spieler (Trägt Figuren intern)
+- Figur (Bewegt sich auf den Feldern)
+- Pfad (Abstraktion der Bewegung für die Figuren)
+- Brett (Die Steckfläche für Felder und Bereiche)
+- Bereich (Abstraktion von Häusern und Zielen)
+- Feld (Speichert eine Position)
+- Controller (Führt das Spiel aus & bietet die notwendige Schnittstelle)
+
+- BaueBrett (Auslagern des Konstruktors, da mitunter sehr lang)
+- MADKI (Der Computergegner im Spiel)
+
+WICHTIG: Für die Nutzung des Produkts findet sich ein Bausteindiagramm.
+-------------------------------------------------------------------------
+Implementation: Wie sehen die Standard - Regeln aus?
+-----------------------------------------
+3. Fälle:
+- 1. Alle Figuren im Haus
+- 2. Figuren im Haus und auf dem Weg
+- 3. Alle Figuren aus dem Haus
+-----------------------------------------
+1. Fall: Alle Figuren im Haus
+- Wuerfel 3 Mal
+- Wenn 6 
+	- Setze Figur auf Start
+	- Wenn besetzt
+		- Kicke Figur
+	- Wuerfel erneut
+	- Mache Startfeld frei
+	- Wenn besetzt
+		- Kicke Figur
+	- Nächster Zug
+
+- Sonst
+	- Nächster Zug
+-----------------------------------------
+2. Fall: Figuren im Haus und auf dem Weg
+- Wuerfel 1 Mal
+- Wenn 6
+	- Setze Figur aus Haus
+	- Wenn unmoeglich 
+		- Mache Haus frei
+		- Wenn unmoeglich
+			- Erlaube alle
+	- Wenn besetzt
+		- Kicke Figur
+
+- Sonst
+	- Setze Figur auf Feld
+	- Wenn unmoeglich
+		- Waehle andere Figur
+		- Wenn unmoeglich
+			- Naechster Zug
+	- Wenn besetzt
+		- Kicke Figur
+	- Nächster Zug
+-----------------------------------------
+3. Fall: Alle Figuren aus dem Haus
+- Wuerfel 1 Mal
+- Setze Figur auf Feld
+- Wenn unmoeglich
+	- Waehle andere Figur
+	- Wenn unmoeglich
+		- Naechster Zug
+	- Wenn besetzt
+		- Kicke Figur
+	- Prüfe, ob gewonnen
+	- Nächster Zug
+-----------------------------------------
+Was muss geprüft werden?
+- Welcher Fall ist es
+- Was wurde gewürfelt
+- Ist Zug möglich
+- Ist Feld besetzt
+- Gewonnen?
+-----------------------------------------
+	
+						

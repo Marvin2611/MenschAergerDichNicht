@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="MAD.Ressourcen.UserControls.Speichern"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MAD.Ressourcen.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="640" d:DesignWidth="800">
+    <Grid Background="#74B389">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="30">
+            <Label Style="{StaticResource Menu_Label}">Hier sollte ja eigentlich was sein, aber...</Label>
+            <Label Style="{StaticResource Menu_Label}">Programmieren ist anstrengend :D</Label>
+        </StackPanel>
+
+        <Grid Grid.Column="1" Background="#7ACC95">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="10" Grid.Row="0">
+
+            </StackPanel>
+
+            <Button x:Name="zurueck" Style="{StaticResource Menu_Buttons}" Click="zurueck_Click" Grid.Row="1">Abbrechen</Button>
+        </Grid>
+    </Grid>
+</UserControl>
