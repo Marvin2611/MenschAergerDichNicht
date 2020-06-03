@@ -16,7 +16,7 @@ color stripe in the middle, you win! :)
 More information about the project concept can be found
 in the link below. 
 The folder contains:
-- A diagram that shows the usage the game
+- A diagram that shows the usage of the game
 - An analysis what needs to be done
 - The used color scheme
 - Some unused code
