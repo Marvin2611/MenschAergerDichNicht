@@ -1,4 +1,4 @@
-# MenschAergerDichNicht
+# Mensch Ärger Dich Nicht
 A small game made as university project
 
 ## How to play
