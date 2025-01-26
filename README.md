@@ -1,7 +1,7 @@
 # Mensch Ärger Dich Nicht
 A small game made as university project <br/>
 Please note that the game as well as the 
-documentation is on german right now.
+documentation is in german right now.
 
 ## How to play
 [For the general Mensch-Ärger-Dich-Nicht rules click here](https://en.wikipedia.org/wiki/Mensch_%C3%A4rgere_Dich_nicht) <br/>
